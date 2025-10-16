@@ -7,5 +7,12 @@ pipeline {
 
             }
         }
+
+        stage('Prepare SSH Known Hosts') { 
+            steps {
+                 sh ''' mkdir -p ~/.ssh ssh-keyscan github.com >> ~/.ssh/known_hosts 
+                 ''' 
+            } 
+        }
     }
 }
